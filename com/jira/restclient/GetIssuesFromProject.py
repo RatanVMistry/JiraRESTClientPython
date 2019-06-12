@@ -41,7 +41,7 @@ class GetIssueFromProject:
         print("Priority : {priority}".format(priority=issue['fields']['priority']['name']))
         print("Status : {status}".format(status=issue['fields']['status']['name']))
 
-
+'''
 project = GetProjects()
 projects = project.getProjects()
 project.printProjects(projects)
@@ -62,3 +62,4 @@ while t == True:
     else:
         print("There is no issue in this project")
         t = False
+'''
