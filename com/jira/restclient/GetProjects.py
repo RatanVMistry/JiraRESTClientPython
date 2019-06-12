@@ -33,7 +33,7 @@ class GetProjects:
         return res.json()
         #print(res.json())
         #res = requests.get("http://" + endpoint +"/rest/api/2/project", auth=HTTPBasicAuth(username, password), verify=False)
-        print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id = res.json()['id'],key = res.json()['key'], name = res.json()['name']))
+        #print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id = res.json()['id'],key = res.json()['key'], name = res.json()['name']))
 
     def printProjects(self, projectList):
         for i in range(len(projectList)):
@@ -42,11 +42,11 @@ class GetProjects:
     def printProjectByID(self,projectDetail):
         print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id=projectDetail['id'], key=projectDetail['key'], name=projectDetail['name']))
 
-project = GetProjects()
-projectList = project.getProjects()
-project.printProjects(projectList)
+#project = GetProjects()
+#projectList = project.getProjects()
+#project.printProjects(projectList)
 
 #getProjects()
-projectID = input("Select Project ID = ")
-projectDetail = project.getProjectById(projectID)
-project.printProjectByID(projectDetail)
+#projectID = input("Select Project ID = ")
+#projectDetail = project.getProjectById(projectID)
+#project.printProjectByID(projectDetail)
