@@ -33,7 +33,7 @@ class GetIssueFromProject:
         #print("Status : {status}".format(status=issue['fields']['status']['name']))
 
     def printIssueDetails(self,issue):
-        print("============= Issue detail for Issue ID {id}===================".format(id=issueID))
+        print("============= Issue detail for Issue ID {id}===================".format(id=issue))
         print("{key} :  {summary}".format(key=issue['key'], summary=issue['fields']['summary']))
         print("Issue type : {type}".format(type=issue['fields']['issuetype']['name']))
         print("Issue creator : {creator}".format(creator=issue['fields']['creator']['name']))
