@@ -2,7 +2,7 @@ from com.jira.restclient.Utils import *
 from com.jira.restclient.GetProjects import *
 from com.jira.restclient.GetIssuesFromProject import *
 
-class DeteIssue:
+class DeleteIssueFromProject:
     def deleteIssue(self, issueID):
         path = "/rest/api/2/issue/{id}".format(id=issueID)
         util = Utils()

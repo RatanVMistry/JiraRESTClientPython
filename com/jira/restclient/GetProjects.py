@@ -34,6 +34,14 @@ class GetProjects:
         #print(res.json())
         #res = requests.get("http://" + endpoint +"/rest/api/2/project", auth=HTTPBasicAuth(username, password), verify=False)
         #print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id = res.json()['id'],key = res.json()['key'], name = res.json()['name']))
+    def projectIDInList(self,projectID,projects):
+        projectIDList = []
+        for i in range(len(projects)):
+            projectIDList.append(projects[i]['id'])
+        if projectID in projectIDList:
+            return True
+        else:
+            return False
 
     def printProjects(self, projectList):
         for i in range(len(projectList)):

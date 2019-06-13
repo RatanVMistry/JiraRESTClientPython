@@ -13,9 +13,19 @@ class GetIssueFromProject:
         #    print("{id} -> {key} -> {summary} ".format(id=issues[i]['id'],key=issues[i]['key'],summary=issues[i]['fields']['summary']))
         #print(issues)
         #print(res.json())
+
     def printIssuesFromProject(self,issues):
         for i in range(len(issues)):
             print("{id} -> {key} -> {summary} ".format(id=issues[i]['id'],key=issues[i]['key'],summary=issues[i]['fields']['summary']))
+
+    def issueIDinIssueList(self,issueID,issuesList):
+        issueIdList = []
+        for i in range(len(issuesList)):
+            issueIdList.append(issuesList[i]['id'])
+        if issueID in issueIdList:
+            return True
+        else:
+            return False
 
     def getIssueDetails(self, issueID):
         path = "/rest/api/2/issue/{id}".format(id=issueID)
