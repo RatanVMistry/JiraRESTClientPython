@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "project": {
+      "key": "OT"
+    },
+    "summary": "Test JSON",
+    "description": "REST call create",
+    "issuetype": {
+      "name": "Improvement"
+      },
+    "assignee": {
+      "name": "admin"
+    }
+  }
+}

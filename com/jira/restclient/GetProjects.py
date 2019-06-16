@@ -34,6 +34,7 @@ class GetProjects:
         #print(res.json())
         #res = requests.get("http://" + endpoint +"/rest/api/2/project", auth=HTTPBasicAuth(username, password), verify=False)
         #print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id = res.json()['id'],key = res.json()['key'], name = res.json()['name']))
+
     def projectIDInList(self,projectID,projects):
         projectIDList = []
         for i in range(len(projects)):
@@ -43,12 +44,40 @@ class GetProjects:
         else:
             return False
 
+    def projectKeyInList(self,projectKey,projects):
+        projectKeyList = []
+        for i in range(len(projects)):
+            projectKeyList.append(projects[i]['key'])
+        if projectKey in projectKeyList:
+            return True
+        else:
+            return False
+
+    def getCreateIssueType(self,projectKey):
+        path = "/rest/api/2/issue/createmeta?projectKeys={key}".format(key=projectKey)
+        util = Utils()
+        res = util.restGETCall(path)
+        projecsList = res.json()['projects']
+        # print(projecsList)
+        issueTypes = []
+        for i in range(len(projecsList)):
+            for j in range(len(projecsList[i]['issuetypes'])):
+                issueTypes.append(projecsList[i]['issuetypes'][j]['name'])
+        return issueTypes
+        #print(issueTypes)
+        #return res.json()
+        #print(res.json())
+
     def printProjects(self, projectList):
         for i in range(len(projectList)):
             print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id=projectList[i]['id'], key=projectList[i]['key'], name=projectList[i]['name']))
 
     def printProjectByID(self,projectDetail):
         print("ID = {id} -> KEY = {key} ->  NAME = {name}".format(id=projectDetail['id'], key=projectDetail['key'], name=projectDetail['name']))
+
+    def printIssueTypes(self,issueTypeList):
+        for i in range(len(issueTypeList)):
+            print(str(i+1) + " - " + issueTypeList[i])
 
 #project = GetProjects()
 #projectList = project.getProjects()
@@ -58,3 +87,16 @@ class GetProjects:
 #projectID = input("Select Project ID = ")
 #projectDetail = project.getProjectById(projectID)
 #project.printProjectByID(projectDetail)
+
+#projectIssuTypes = project.getCreateIssueType("OT")
+#project.printIssueTypes(projectIssuTypes)
+#projecsList = res['projects']
+#print(projecsList)
+#issueTypes = []
+#for i in range(len(projecsList)):
+#    for j in range(len(projecsList[i]['issuetypes'])):
+#       issueTypes.append(projecsList[i]['issuetypes'][j]['name'])
+#print(issueTypes)
+
+
+#print(res['projects'])

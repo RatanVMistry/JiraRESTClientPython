@@ -23,9 +23,13 @@ class Utils:
         self.password = data['password']
         self.endpoint= data['endPoint']
 
-
-
     def restGETCall(self, path):
         return requests.get("http://" + self.endpoint + path, auth=HTTPBasicAuth(self.username, self.password), verify=False)
+
     def restDELETECall(self, path):
         return requests.delete("http://" + self.endpoint + path, auth=HTTPBasicAuth(self.username, self.password), verify=False)
+
+    def restPOST(self, path, params):
+        url = "http://" + self.endpoint + path
+        params = json.loads(params)
+        return requests.post(url, auth=HTTPBasicAuth(self.username, self.password), json=params,verify=False)
