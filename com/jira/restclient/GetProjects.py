@@ -4,14 +4,7 @@ from com.jira.restclient.Utils import *
 #password = getpass("Enter Passwrod = ")
 #endpoint = input("Enter URL of Jira = ")
 #http://35.227.179.83:8080
-'''
-username= "admin"
-password = "Welcome2cliqr!"
-endpoint= "35.227.179.83:8080"
 
-def restGETCall(username, password, endpoint, path):
-    return requests.get("http://" + endpoint + path, auth=HTTPBasicAuth(username, password), verify=False)
-'''
 class GetProjects:
 
     def getProjects(self):
